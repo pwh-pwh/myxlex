@@ -1,16 +1,69 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.Insets?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.layout.VBox?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
-<?import javafx.scene.control.Button?>
-<VBox alignment="CENTER" spacing="20.0" xmlns:fx="http://javafx.com/fxml"
-      fx:controller="com.coderpwh.pwhxlex_generaor.HelloController">
-    <padding>
-        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0"/>
-    </padding>
-
-    <Label fx:id="welcomeText"/>
-    <Button text="Hello!" onAction="#onHelloButtonClick"/>
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.coderpwh.pwhxlex_generaor.HelloController">
+   <children>
+      <Label fx:id="label_top" alignment="CENTER" onMouseClicked="#onClickLabel" text="--------------------------------设置dot和生成文件路径，可使用默认值--------------" textAlignment="CENTER" textFill="#c61c1c">
+         <font>
+            <Font name="System Bold" size="17.0" />
+         </font>
+      </Label>
+      <Separator prefWidth="200.0" />
+      <HBox prefHeight="100.0" prefWidth="200.0">
+         <children>
+            <Button fx:id="dotbtn" defaultButton="true" mnemonicParsing="false" onAction="#setDotpath" style="-fx-border-color: blue;" text="配置dot" textAlignment="RIGHT" textFill="#650575">
+               <font>
+                  <Font name="Khmer OS System" size="14.0" />
+               </font>
+               <HBox.margin>
+                  <Insets left="10.0" right="10.0" />
+               </HBox.margin>
+            </Button>
+            <TextField fx:id="dotpath" maxWidth="100" />
+            <Button fx:id="filepathbtn" mnemonicParsing="false" onMouseClicked="#setFilepath" text="文件路径" textFill="#29058dc2">
+               <font>
+                  <Font size="18.0" />
+               </font>
+               <HBox.margin>
+                  <Insets left="20.0" right="10.0" />
+               </HBox.margin>
+            </Button>
+            <TextField fx:id="filepath" />
+            <Button fx:id="createbtn" mnemonicParsing="false" onMouseClicked="#create" text="输入正则，点击生成" textAlignment="CENTER" textFill="#139026">
+               <font>
+                  <Font size="15.0" />
+               </font>
+               <HBox.margin>
+                  <Insets left="30.0" right="20.0" />
+               </HBox.margin>
+            </Button>
+            <TextField fx:id="expression" />
+         </children>
+      </HBox>
+      <TabPane prefHeight="550.0" prefWidth="200.0" tabClosingPolicy="UNAVAILABLE" tabMaxWidth="100.0" tabMinHeight="40.0" tabMinWidth="70.0">
+        <tabs>
+          <Tab fx:id="nfatab" text="nfa" />
+          <Tab fx:id="dfatab" text="dfa" />
+           <Tab fx:id="mindfatab" text="mindfa" />
+           <Tab fx:id="codetab" text="c代码" />
+        </tabs>
+         <opaqueInsets>
+            <Insets />
+         </opaqueInsets>
+         <cursor>
+            <Cursor fx:constant="OPEN_HAND" />
+         </cursor>
+         <VBox.margin>
+            <Insets />
+         </VBox.margin>
+         <padding>
+            <Insets left="10.0" right="10.0" />
+         </padding>
+      </TabPane>
+   </children>
 </VBox>
